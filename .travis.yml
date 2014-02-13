@@ -1,2 +1,2 @@
 language: java
-script: mvn sample.parent/pom.xml install
+script: ./run-test.sh
