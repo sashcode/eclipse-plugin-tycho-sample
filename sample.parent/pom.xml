@@ -15,7 +15,7 @@
 	</modules>
 
 	<properties>
-		<tycho-version>0.14.1</tycho-version>
+		<tycho-version>0.18.0</tycho-version>
 	</properties>
 
 	<repositories>
@@ -28,12 +28,57 @@
 
 	<build>
 		<plugins>
+		
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.6.3.201306030806</version>
+				<executions>
+					<execution>
+						<id>jacoco-test</id>
+						<phase>test</phase>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>jacoco-integration-test</id>
+						<phase>integration-test</phase>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-maven-plugin</artifactId>
 				<version>${tycho-version}</version>
 				<extensions>true</extensions>
 			</plugin>
+			
+			<!-- Debug : print environment properties -->
+			<!-- 
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<target>
+								<property environment="env" />
+								<echoproperties />
+							</target>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin> -->
+
 		</plugins>
 	</build>
 
