@@ -1,5 +1,9 @@
 language: java
 
+jdk: oraclejdk7
+
+env: DISPLAY=:99.0
+
 before_script:
  - chmod +x run-test.sh
 
