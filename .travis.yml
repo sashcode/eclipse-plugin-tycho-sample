@@ -16,8 +16,9 @@ before_install:
 before_script:
  - chmod +x run-test.sh
 
+
 script: ./run-test.sh
 
 
 after_failure:
- - cat /home/travis/build/sashcode/eclipse-plugin-tycho-sample/sample.test.workspace/target/work/data/.metadata/.log.
+ - cat /home/travis/build/sashcode/eclipse-plugin-tycho-sample/sample.test.workspace/target/work/data/.metadata/.log
