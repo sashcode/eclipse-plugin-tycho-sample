@@ -12,6 +12,7 @@
 		<module>../sample.site</module>
 		<module>../sample.test</module>
 		<module>../sample.test.workspace</module>
+		<module>../samplegroovy</module>
 	</modules>
 
 	<prerequisites>
@@ -24,9 +25,9 @@
 
 	<repositories>
 		<repository>
-			<id>indigo</id>
+			<id>kepler</id>
 			<layout>p2</layout>
-			<url>http://download.eclipse.org/releases/indigo/</url>
+			<url>http://download.eclipse.org/releases/kepler/</url>
 		</repository>
 	</repositories>
 
@@ -62,6 +63,30 @@
 				<extensions>true</extensions>
 			</plugin>
 			
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-compiler-plugin</artifactId>
+				<configuration>
+					<compilerId>groovy-eclipse-compiler</compilerId>
+					<excludeResources>
+						<excludeResource>**/*.groovy</excludeResource>
+					</excludeResources>
+					<verbose>true</verbose>
+					<encoding>UTF-8</encoding>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.codehaus.groovy</groupId>
+						<artifactId>groovy-eclipse-compiler</artifactId>
+						<version>2.8.0-01</version>
+					</dependency>
+					<dependency>
+						<groupId>org.codehaus.groovy</groupId>
+						<artifactId>groovy-eclipse-batch</artifactId>
+						<version>[1.8.3-01,9.9.9)</version>
+					</dependency>
+				</dependencies>
+			</plugin>
 			<!-- Debug : print environment properties -->
 			<!-- 
 			<plugin>
